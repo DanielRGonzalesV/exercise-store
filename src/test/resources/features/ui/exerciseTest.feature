@@ -6,16 +6,16 @@ Feature: My Store - Items
 # Scenario to Validate Items
 # ===========================================================================================
 
-## An user should be able a discount for an item
-#  # A/C
-#  # An user open the webApp and should be able:
-#  # Select and item
-#  # Validate the discount
-#  #
-#  Scenario: Verify that the discount for "Printed Chiffon Dress" is 20% in Home Page
-#    When I click on BEST SELLERS
-#    Then The "Printed Chiffon Dress" item is displayed
-#    And The discount price showed for "Printed Chiffon Dress" should be "-20%"
+# An user should be able a discount for an item
+  # A/C
+  # An user open the webApp and should be able:
+  # Select and item
+  # Validate the discount
+  #
+  Scenario: Verify that the discount for "Printed Chiffon Dress" is 20% in Home Page
+    When I click on BEST SELLERS
+    Then The "Printed Chiffon Dress" item is displayed
+    And The discount price showed for "Printed Chiffon Dress" should be "-20%"
 
 # An user should be able checkout added products to cart
   # A/C
@@ -33,3 +33,24 @@ Feature: My Store - Items
     Then The following products should be displayed with the status availability
       | Printed Chiffon Dress | In stock |
       | Blouse                | In stock |
+
+# An user should be able remove products from cart
+  # A/C
+  # An user open the webApp and should be able:
+  # Add items to Cart
+  # Remove Product from Summary Cart
+  # Validate id the item was removed
+  # Validate Final Price
+  #
+  Scenario: Verify that the discount for "Printed Chiffon Dress" is 20% in Home Page
+    When I click on BEST SELLERS
+    When I add the following products to cart
+      | Printed Chiffon Dress |
+      | Blouse                |
+    And I checkout products from cart
+    When I remove the following products from cart
+      | Blouse |
+    Then The following products should not be displayed in the page
+      | Blouse |
+    And the total amount to pay is "$18.40"
+

@@ -22,4 +22,17 @@ public class CartSummary extends UIInteractionSteps {
     public String getAvailabilityProduct(String productName) {
         return $(CartSummaryPage.availabilityProduct(productName)).getText();
     }
+
+    public void removeProducts(List<String> products) {
+        products.forEach(
+                productName -> {
+                    $(CartSummaryPage.removeItem(productName)).click();
+                    waitForAngularRequestsToFinish();
+                }
+        );
+    }
+
+    public String totalAmount() {
+        return $(CartSummaryPage.TOTAL_AMOUNT).getText();
+    }
 }
