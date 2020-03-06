@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
-
 public class Common extends UIInteractionSteps {
 
     @Step("Hover on Element")
