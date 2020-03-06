@@ -3,6 +3,7 @@ package org.myStore.ui.tasks;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.core.steps.UIInteractionSteps;
 import org.myStore.ui.pages.CartSummaryPage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,8 +27,9 @@ public class CartSummary extends UIInteractionSteps {
     public void removeProducts(List<String> products) {
         products.forEach(
                 productName -> {
+                    List<String> beforeListProducts = getNamesProducts();
                     $(CartSummaryPage.removeItem(productName)).click();
-                    waitForAngularRequestsToFinish();
+                    waitForCondition().until(ExpectedConditions.numberOfElementsToBeLessThan(CartSummaryPage.NAME_PRODUCTS, beforeListProducts.size()));
                 }
         );
     }
