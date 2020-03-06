@@ -26,10 +26,19 @@ public class CartSummary extends UIInteractionSteps {
     public void removeProducts(List<String> products) {
         products.forEach(
                 productName -> {
+                    List<String> listOfNamesProductsFirst = getNamesProducts();
                     $(CartSummaryPage.removeItem(productName)).click();
                     waitForAngularRequestsToFinish();
+                    verifyElements(listOfNamesProductsFirst.size(), 15);
                 }
         );
+    }
+
+    private void verifyElements(int sizeFirst, int count) {
+        List<String> listOfNamesProductsSecond = getNamesProducts();
+        if (listOfNamesProductsSecond.size() == sizeFirst && count > 0) {
+            verifyElements(sizeFirst, count - 1);
+        }
     }
 
     public String totalAmount() {
