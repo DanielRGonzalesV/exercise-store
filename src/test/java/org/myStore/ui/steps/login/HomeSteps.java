@@ -35,6 +35,11 @@ public class HomeSteps {
 
     @When("I add the following products to cart")
     public void iAddTheFollowingProductsToCart(List<String> products) {
-     //   bestSeller.addToCart(products);
+       bestSeller.addToCart(products);
+    }
+
+    @And("I checkout products from cart")
+    public void iCheckoutProductsFromCart() {
+        home.clickCheckoutFromCart();
     }
 }
