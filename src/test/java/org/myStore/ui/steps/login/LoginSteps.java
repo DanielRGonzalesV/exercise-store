@@ -3,7 +3,7 @@ package org.myStore.ui.steps.login;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import net.thucydides.core.annotations.Steps;
-import org.myStore.ui.tasks.Home;
+import org.myStore.ui.tasks.home.Home;
 import org.myStore.ui.tasks.Login;
 
 import static org.hamcrest.MatcherAssert.assertThat;
