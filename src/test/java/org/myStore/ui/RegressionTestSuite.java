@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src/test/resources/features/ui/loginTest.feature",
+        features = "src/test/resources/features/ui/exerciseTest.feature",
         glue = "org.myStore"
 )
 public class RegressionTestSuite {
