@@ -1,5 +1,7 @@
 {
-  "title": "${title}",
-  "body": "${body}",
-  "userId": "${userId}"
+  "firstName": "${firstName}",
+  "lastName": "${body}",
+  "email": "${body}",
+  "programme": "${body}",
+  "courses": "${courses}"
 }

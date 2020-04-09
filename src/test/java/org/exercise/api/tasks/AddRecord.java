@@ -1,9 +1,9 @@
-package org.starWars.api.tasks;
+package org.exercise.api.tasks;
 
 import io.restassured.response.Response;
 import net.thucydides.core.annotations.Step;
-import org.starWars.api.requests.RequestManager;
-import org.starWars.api.requests.RequestSpec;
+import org.exercise.api.requests.RequestManager;
+import org.exercise.api.requests.RequestSpec;
 
 public class AddRecord {
     private Response postResponse;

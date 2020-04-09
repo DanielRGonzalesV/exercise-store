@@ -1,4 +1,4 @@
-package org.starWars.api.requests;
+package org.exercise.api.requests;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;

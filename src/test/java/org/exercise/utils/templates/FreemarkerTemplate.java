@@ -1,4 +1,4 @@
-package org.starWars.utils.templates;
+package org.exercise.utils.templates;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

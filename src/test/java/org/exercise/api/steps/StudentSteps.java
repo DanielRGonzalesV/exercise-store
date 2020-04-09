@@ -1,4 +1,4 @@
-package org.starWars.api.steps;
+package org.exercise.api.steps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -6,9 +6,10 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.Response;
 import net.thucydides.core.annotations.Steps;
-import org.starWars.api.tasks.AddRecord;
-import org.starWars.utils.templates.FieldValues;
-import org.starWars.utils.templates.MergeFrom;
+import org.exercise.api.tasks.AddRecord;
+import org.exercise.api.tasks.GetRecord;
+import org.exercise.utils.templates.FieldValues;
+import org.exercise.utils.templates.MergeFrom;
 import static org.hamcrest.Matchers.equalTo;
 
 import java.io.IOException;
@@ -17,12 +18,13 @@ import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class SampleSteps {
+public class StudentSteps {
     private Response resp;
     private String postsData;
 
     @Steps
     AddRecord addRecord;
+    GetRecord getRecord;
 
     @Given("I have the following posts data:")
     public void iHaveTheFollowingPostsData(List<Map<String, String>> postsDetails) throws IOException {
@@ -44,7 +46,18 @@ public class SampleSteps {
     @And("I validate response content")
     public void iValidateResponseContent() {
         String contentType = resp.header("Content-Type");
-
         assertThat(contentType, equalTo("application/json; charset=utf-8"));
+    }
+
+    @Given("I send GET request for student with ID {string}")
+    public void iSetGETRequestForStudentWithID(String id) {
+        resp = getRecord.withStudentId(id);
+    }
+
+    @Given("I have the following student data:")
+    public void iHaveTheFollowingStudentData(List<Map<String, String>> postsDetails) throws IOException {
+        postsData = MergeFrom.template("templates/posts.json")
+                .withDefaultValuesFrom(FieldValues.in("templates/standard-posts.properties"))
+                .withFieldsFrom(postsDetails.get(0));
     }
 }
