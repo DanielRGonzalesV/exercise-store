@@ -25,9 +25,6 @@ To run the automated tests, you can either just run the test runner class direct
 $ gradlew clean test
 ```
 
-By default, the tests will run using Chrome.
-
-
 You can see the final report in:
 ```json
 ./target/site/serenity/index.html

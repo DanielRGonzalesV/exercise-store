@@ -1,4 +1,4 @@
-package org.myStore.ui;
+package org.starWars.api;
 
 import cucumber.api.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
@@ -8,10 +8,10 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src/test/resources/features/ui/exerciseTest.feature",
-        glue = "org.myStore"
+        features = "src/test/resources/features/api/sample.feature",
+        glue = "org.starWars"
 )
-public class RegressionTestSuite {
+public class TestSuite {
 
     @BeforeClass
     public static void globalSetup() {
