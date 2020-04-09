@@ -1,4 +1,4 @@
-# My Store Test Automation framework
+# Exercise UI Test  - Automation framework
 Test automation project based on Serenity BDD.
 
 ## Setup
@@ -25,7 +25,7 @@ To run the automated tests, you can either just run the test runner class direct
 $ gradlew clean test
 ```
 
-By default, the tests will run using Chrome.
+By default, the tests will run using the last Chrome stable version (tested version: 81.0.4044.92)
 
 
 You can see the final report in:
